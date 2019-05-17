@@ -1,0 +1,11 @@
+#main {
+  display: inline-grid;
+  margin-top: 10px; }
+  #main select {
+    color: black !important; }
+  #main #currency-panel {
+    display: inline-block; }
+    #main #currency-panel .currency {
+      margin-bottom: 5px; }
+    #main #currency-panel input {
+      color: black; }

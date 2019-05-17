@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/902c505d-0427-421f-a1f2-f3ec615211bd/resourceGroups/cryptoreporter/providers/Microsoft.Web/sites/cryptoreporter",
+    "appService.deploySubpath": "build"
+}
