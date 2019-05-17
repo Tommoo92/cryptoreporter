@@ -5,6 +5,7 @@ import $ from '../node_modules/jquery';
 import './style/css/app.css';
 document.cookie = "username=John Doe";
 document.cookie = "key=John"; 
+document.cookie = "key=John"; 
 
 const AppContext = React.createContext();
 
