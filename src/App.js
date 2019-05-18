@@ -2,9 +2,7 @@ import React from 'react';
 import logo from '../src/media/BTC_Logo.svg';
 import './App.css';
 import $ from '../node_modules/jquery';
-import './style/css/app.css';
-document.cookie = "username=John Doe";
-document.cookie = "key=John"; 
+import './style/css/app.css'; 
 
 const AppContext = React.createContext();
 
@@ -12,7 +10,6 @@ class AppProvider extends React.Component {
   
   constructor(){
     super();
-    alert(this.getCookie('username'));
 
     this.state = { 
       number : 10,
@@ -109,13 +106,29 @@ class App extends React.Component {
           cny: data.XRP.CNY
         })
       }
+      if(selectedCrypto === "EOS"){
+        this.setState({
+          usd: data.EOS.USD,
+          gbp: data.EOS.GBP,
+          eur: data.EOS.EUR,
+          cny: data.XRP.CNY
+        })
+      }
+      if(selectedCrypto === "BCH"){
+        this.setState({
+          usd: data.BCH.USD,
+          gbp: data.BCH.GBP,
+          eur: data.BCH.EUR,
+          cny: data.BCH.CNY
+        })
+      }
     }.bind(this),function errorHandler(){
       console.log('Ajax call failed')
     });
   }
 
   getCurrenciesValue(crypto){
-    var url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,XMR,LTC,ZEC,XRP&tsyms=USD,EUR,GBP,CNY";
+    var url = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,XMR,LTC,ZEC,XRP,EOS,BCH&tsyms=USD,EUR,GBP,CNY";
 
     return $.ajax({
         dataType:'json',
@@ -138,6 +151,8 @@ class App extends React.Component {
               <option value="LTC">Litecoin</option>
               <option value="ZEC">Zcash</option>
               <option value="XRP">Ripple</option>
+              <option value="EOS">EOS</option>
+              <option value="BCH">Bitcoin Cash</option>
             </select>
             <hr/>
             <div id="currency-panel">
