@@ -4,30 +4,6 @@ import './App.css';
 import $ from '../node_modules/jquery';
 import './style/css/app.css'; 
 
-const AppContext = React.createContext();
-
-class AppProvider extends React.Component {
-  
-  constructor(){
-    super();
-
-    this.state = { 
-      number : 10,
-    }    
-  }
-
-  getCookie(name) {
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  }
-  render() {
-      return <AppContext.Provider value={this.state}>
-        {this.props.children}
-      </AppContext.Provider>
-    }
-  }
-
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -139,7 +115,6 @@ class App extends React.Component {
 
   render(){
     return (
-      <AppProvider>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -164,7 +139,6 @@ class App extends React.Component {
           </div>
         </header>
       </div>
-      </AppProvider>
     );
   }
 }
